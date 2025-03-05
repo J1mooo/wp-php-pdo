@@ -20,5 +20,5 @@ jobs:
       uses: VaultVulp/gp-docker-action@1.6.0
       with:
           github-token: ${{ secrets.GITHUB_TOKEN }} # Provide GITHUB_TOKEN to login into the GitHub Packages
-          image-name: php-mysqli # Provide only Docker image name, tag will be automatically set to latest
+          image-name: wp-php-pdo # Provide only Docker image name, tag will be automatically set to latest
           dockerfile: Dockerfile
