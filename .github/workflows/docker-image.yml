@@ -9,11 +9,8 @@ on:
     
 
 jobs:
-
-  build:
-
+  build-legacy:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
     - name: Build and Publish latest Docker image
@@ -21,4 +18,15 @@ jobs:
       with:
           github-token: ${{ secrets.GITHUB_TOKEN }} # Provide GITHUB_TOKEN to login into the GitHub Packages
           image-name: wp-php-pdo # Provide only Docker image name, tag will be automatically set to latest
-          dockerfile: Dockerfile
+          image-tag: legacy
+          dockerfile: Dockerfile-legacy
+  build-current:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build and Publish latest Docker image
+      uses: VaultVulp/gp-docker-action@1.6.0
+      with:
+          github-token: ${{ secrets.GITHUB_TOKEN }} # Provide GITHUB_TOKEN to login into the GitHub Packages
+          image-name: wp-php-pdo # Provide only Docker image name, tag will be automatically set to latest
+          dockerfile: Dockerfile-latest
