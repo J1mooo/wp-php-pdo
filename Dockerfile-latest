@@ -2,9 +2,8 @@ FROM wordpress:php8.4-apache
 
 RUN docker-php-ext-install pdo pdo_mysql
 
-RUN apk add --no-cache pcre-dev $PHPIZE_DEPS \
-&& pecl install redis \
-&& docker-php-ext-enable redis.so
+RUN pecl install redis \
+    && docker-php-ext-enable redis
 
 
 COPY ./upload.ini /usr/local/etc/php/conf.d
