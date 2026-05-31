@@ -3,3 +3,4 @@ FROM wordpress:php8.4-apache
 RUN docker-php-ext-install pdo pdo_mysql
 
 COPY ./upload.ini /usr/local/etc/php/conf.d
+COPY ./cache.ini /usr/local/etc/php/conf.d
